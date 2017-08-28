@@ -1,6 +1,6 @@
 {
   "name": "validate-protobuf",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Validate protobuf message object.",
   "scripts": {
     "lint": "eslint --ext js,md .",
