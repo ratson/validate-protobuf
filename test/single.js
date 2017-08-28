@@ -46,9 +46,9 @@ test('wrong string type', t => {
   t.is(
     validate('Single', {
       required: '',
-      msg: 123,
+      final_message: 123,
     }),
-    'msg: string expected',
+    'final_message: string expected',
   )
 })
 
@@ -73,5 +73,29 @@ test('throws', t => {
       num: '',
       required: '',
     }),
+  )
+})
+
+test('keepCase = false', t => {
+  const validate = validateProtobuf({
+    root: path.join(__dirname, 'fixtures/protos'),
+    file: 'pkg/single.proto',
+    throws: false,
+    keepCase: false,
+  })
+  t.is(
+    validate('Single', {
+      required: '',
+      finalMessage: 1,
+    }),
+    'finalMessage: string expected',
+  )
+  // the following will be considered valid
+  t.is(
+    validate('Single', {
+      required: '',
+      final_message: 1,
+    }),
+    null,
   )
 })

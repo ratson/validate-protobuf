@@ -4,7 +4,7 @@ const fs = require('fs')
 
 const protobuf = require('protobufjs')
 
-module.exports = ({ root, file, throws = true }) => {
+module.exports = ({ root, file, keepCase = true, throws = true }) => {
   const protoRoot = new protobuf.Root()
   protoRoot.resolvePath = (origin, target) => {
     const normOrigin = protobuf.util.path.normalize(origin)
@@ -30,7 +30,7 @@ module.exports = ({ root, file, throws = true }) => {
 
     return resolved
   }
-  const protos = protoRoot.loadSync(file)
+  const protos = protoRoot.loadSync(file, { keepCase })
   return (message, obj) => {
     const result = protos.lookupType(message).verify(obj)
     if (result && throws) {
