@@ -1,0 +1,38 @@
+{
+  "name": "validate-protobuf",
+  "version": "0.0.0",
+  "description": "Validate protobuf message object.",
+  "scripts": {
+    "lint": "eslint --ext js,md .",
+    "test": "ava",
+    "posttest": "npm run lint"
+  },
+  "dependencies": {
+    "protobufjs": "^6.8.0"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "eslint": "^4.5.0",
+    "eslint-config-concise": "^0.11.0",
+    "eslint-config-concise-ava": "^0.11.0"
+  },
+  "repository": "ratson/validate-protobuf",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6"
+  },
+  "files": [
+    "*.md",
+    "index.js"
+  ],
+  "keywords": [
+    "validate",
+    "validation",
+    "protocol",
+    "buffer",
+    "message",
+    "protobuf",
+    "proto",
+    "import"
+  ]
+}

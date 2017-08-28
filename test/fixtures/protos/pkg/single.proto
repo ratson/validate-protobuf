@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package pkg;
+
+message Single {
+    int32 num = 1;
+    required string required = 2;
+    optional string optional = 3;
+}
