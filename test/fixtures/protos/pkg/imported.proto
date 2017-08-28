@@ -1,8 +1,13 @@
 syntax = "proto3";
 
 package pkg;
+
 import "pkg/single.proto";
 
 message WithImport {
     Single single = 0;
+
+    message Nested {
+        int32 num = 1;
+    }
 }

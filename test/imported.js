@@ -17,8 +17,40 @@ test('valid', t => {
   const { validate } = t.context
   t.is(
     validate('WithImport', {
-      required: '',
+      single: {
+        required: '',
+      },
     }),
     null,
+  )
+})
+
+test('miss required', t => {
+  const { validate } = t.context
+  t.is(
+    validate('WithImport', {
+      single: {},
+    }),
+    'single.required: string expected',
+  )
+})
+
+test('valid nested', t => {
+  const { validate } = t.context
+  t.is(
+    validate('WithImport.Nested', {
+      num: 123,
+    }),
+    null,
+  )
+})
+
+test('nested wrong type', t => {
+  const { validate } = t.context
+  t.is(
+    validate('WithImport.Nested', {
+      num: '123',
+    }),
+    'num: integer expected',
   )
 })

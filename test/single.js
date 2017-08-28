@@ -36,6 +36,20 @@ test('wrong string type', t => {
     }),
     'required: string expected',
   )
+  t.is(
+    validate('Single', {
+      required: '123',
+      optional: 123,
+    }),
+    'optional: string expected',
+  )
+  t.is(
+    validate('Single', {
+      required: '',
+      msg: 123,
+    }),
+    'msg: string expected',
+  )
 })
 
 test('wrong integer type', t => {
